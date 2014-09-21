@@ -1,7 +1,7 @@
-var User = require(__dirname+'/../../../../lib/data').models.users;
+var User = require(__dirname+'/../../lib/data').models.users;
 
 var UsersController = {};
-require(__dirname+'/../../../../lib/data/controllers/users')(UsersController);
+require(__dirname+'/../../lib/data/controllers/users.js')(UsersController);
 
 function index(req, res){
   User.findAll({ where: req.query }).complete(function(err, users){

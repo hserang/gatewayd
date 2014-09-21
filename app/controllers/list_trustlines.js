@@ -1,6 +1,6 @@
-var listTrustlines = require(__dirname+'/../../../ripple/lines.js');
-var config = require(__dirname+'/../../../../config/config.js');
-var validator = require(__dirname+'/../../../validator.js');
+var listTrustlines = require(__dirname+'/../../lib/ripple/lines.js');
+var config = require(__dirname+'/../../config/config.js');
+var validator = require(__dirname+'/../../lib/validator.js');
 
 module.exports = function(req, res){
   var account = req.params.account;

@@ -1,4 +1,4 @@
-var enqueueOutgoingPayment = require(__dirname+'/../../../api/enqueue_outgoing_payment.js');
+var enqueueOutgoingPayment = require(__dirname+'/../../lib/api/enqueue_outgoing_payment.js');
 
 function OutgoingRipplePaymentsController() { 
   this.resource = '/payments/outgoing';

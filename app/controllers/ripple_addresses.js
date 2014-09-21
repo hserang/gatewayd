@@ -1,4 +1,4 @@
-var RippleAddress = require(__dirname+'/../../../../lib/data').models.rippleAddresses;
+var RippleAddress = require(__dirname+'/../../lib/data').models.rippleAddresses;
 
 function index(req, res){
   RippleAddress.findAll({ where: req.query }).complete(function(err, rippleAddresses){

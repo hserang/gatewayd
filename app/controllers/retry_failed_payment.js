@@ -1,7 +1,7 @@
-var gateway = require(__dirname+'/../../../../');
+const gatewayd = require(__dirname+'/../../');
 
 module.exports = function(req, res){
-  gateway.api.retryFailedPayment(req.params.id, function(error, payment){
+  gatewayd.api.retryFailedPayment(req.params.id, function(error, payment){
     if (error){
       if (error.field === 'id') {
         return res.send(404, { error: {

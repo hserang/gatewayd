@@ -1,4 +1,4 @@
-var gateway = require(__dirname+'/../../../../');
+const gatewayd = require(__dirname+'/../../');
 
 module.exports = function(req, res) {
 
@@ -11,7 +11,7 @@ module.exports = function(req, res) {
 
   if (opts.external_account_id && opts.amount && opts.currency) {
 
-    gateway.api.recordDeposit(opts, function(err, deposit){
+    gatewayd.api.recordDeposit(opts, function(err, deposit){
       if (err) {
         res.send(500, {error: err});
       } else {

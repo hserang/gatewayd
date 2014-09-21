@@ -1,4 +1,4 @@
-const Policy = require(__dirname+'/../../../data/models/policies.js');
+const Policy = require(__dirname+'/../../lib/data/').models.policies;
 
 const policiesController = {
 

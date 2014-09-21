@@ -1,8 +1,8 @@
-var gateway = require(__dirname+'/../../../../');
+const gatewayd = require(__dirname+'/../../');
 
 module.exports = function(req, res) {
 
-  gateway.api.listOutgoingPayments(function(err, payments){
+  gatewayd.api.listOutgoingPayments(function(err, payments){
     if (err) {
       res.send(500, {error: err});
     } else {

@@ -1,4 +1,4 @@
-var ExternalTransaction = require(__dirname+'/../../../../lib/data').models.externalTransactions;
+var ExternalTransaction = require(__dirname+'/../../lib/data').models.externalTransactions;
 
 function index(req, res){
   ExternalTransaction.findAll({ where: req.query }).complete(function(err, externalTransactions){

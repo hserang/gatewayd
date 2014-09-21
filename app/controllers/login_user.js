@@ -1,13 +1,13 @@
-var gateway = require(__dirname+'/../../../../');
+const gatewayd = require(__dirname+'/../../');
 
 module.exports = function(req, res) {
   var name = req.body.name;
   var password = req.body.password;
-  var adminEmail = 'admin@' + gateway.config.get('DOMAIN');
+  var adminEmail = 'admin@' + gatewayd.config.get('DOMAIN');
 
   if (name === adminEmail) {
 
-    if (password === gateway.config.get('KEY')) {
+    if (password === gatewayd.config.get('KEY')) {
       var user = {
         admin: true
       };
@@ -18,13 +18,13 @@ module.exports = function(req, res) {
 
   } else {
 
-    gateway.data.users.read({ name: name }, function(err, user) {
+    gatewayd.data.users.read({ name: name }, function(err, user) {
       if (err) {
         res.send(500, { error: err });
         return;
       }
 
-      var verified = gateway.data.users.verifyPassword(password, user.salt, user.password_hash);
+      var verified = gatewayd.data.users.verifyPassword(password, user.salt, user.password_hash);
       if (verified) {
         res.send({ user: user });
       } else {

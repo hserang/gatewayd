@@ -1,4 +1,4 @@
-var gateway = require(__dirname+'/../../../../');
+var gatewayd = require(__dirname+'/../../');
 
 module.exports = function(req, res) {
 
@@ -8,7 +8,7 @@ module.exports = function(req, res) {
     secret: req.body.secret
   };
 
-  gateway.api.fundHotWallet(options, function(error, response){
+  gatewayd.api.fundHotWallet(options, function(error, response){
     if (error) {
       res.send(500, { success: false, error: error });
     } else {

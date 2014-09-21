@@ -1,5 +1,5 @@
-var gateway = require(__dirname+'/../../../../');
+const gatewayd = require(__dirname+'/../../');
 
 module.exports = function(req, res){
-  res.send({ 'CURRENCIES': gateway.config.get('CURRENCIES') });
+  res.send({ 'CURRENCIES': gatewayd.config.get('CURRENCIES') });
 };
