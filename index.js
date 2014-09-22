@@ -9,6 +9,7 @@ exports.ripple = require(__dirname +'/lib/ripple/');
 exports.validator = require(__dirname+'/lib/validator.js');
 exports.server = require(__dirname+'/lib/app.js');
 exports.processes = require(__dirname+'/lib/processes/');
+exports.logger = require(__dirname+'/lib/logger.js');
 
 require(__dirname+'/Gatewaydfile')(exports);
 

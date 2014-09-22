@@ -1,17 +1,15 @@
-var exec = require('child_process').exec;
-
+const exec = require('child_process').exec;
+const gatewayd = require(__dirname+'/../');
 process.env.DATABASE_URL = null;
-
-var serverPath = __dirname + '/../node_modules/ripple-rest/';
-
-var command = 'cd '+ serverPath + ' && node server.js';
+const serverPath = __dirname + '/../node_modules/ripple-rest/';
+const command = 'cd '+ serverPath + ' && node server.js';
 
 exec(command, function(err, stdout) {
   if (err) {
-    logger.error(err);
+    gatewayd.logger.error(err);
   } else {
-    logger.info(stdout);
+    gatewayd.logger.info(stdout);
   }
 });
 
-logger.info('Running Ripple REST on http://localhost:5990');
+gatewayd.logger.info('Running Ripple REST on http://localhost:5990');

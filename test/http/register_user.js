@@ -1,6 +1,6 @@
 var request = require('supertest');
 var app = require(__dirname+'/../../lib/app.js');
-var gateway = require(__dirname+'/../../');
+var gatewayd = require(__dirname+'/../../');
 var data = require(__dirname+'/../../lib/data/');
 
 describe('register user', function(){
@@ -22,16 +22,16 @@ describe('register user', function(){
       .post('/v1/registrations')
       .set('Accept', 'application/json')
       .send(testUser)
-      .auth('admin@'+gateway.config.get('DOMAIN'), gateway.config.get('KEY'))
+      .auth('admin@'+gatewayd.config.get('DOMAIN'), gatewayd.config.get('KEY'))
       .expect(200)
       .end(function(err){
         if (err) throw err;
         //remove test username to avoid test fail due to duplicate username
         data.models.users.destroy({ name: testUser.name }).complete(function(err, resp){
           if(err){
-            logger.error('username destroy error:: ', err);
+            gatewayd.logger.error('username destroy error:: ', err);
           } else {
-            logger.info('username destroyed:: ', resp);
+            gatewayd.logger.info('username destroyed:: ', resp);
           }
           done();
         });
