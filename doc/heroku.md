@@ -11,7 +11,7 @@ heroku config:set HOST=0.0.0.0
 heroku config:set SSL=false
 heroku ps:scale web=1
 ```    
-##Migrate db##
+###Migrate db###
 
 ```    
 heroku config:get DATABASE_URL
@@ -20,9 +20,14 @@ copy the returned database url string
 ```    
 DATABASE_URL=<paste database url string>?native=true grunt migrate
 ```
+
+###Restart Heroku Instance###
+```
+heroku restart
+```
     
-    
-    
+###Check Server###
+
     curl http://my-great-gateway-app.herokuapp.com/v1/payments/outgoing \
       -X POST \
       -u admin:mysup3rs3cr3t@ap!k3y \ 
